@@ -1,5 +1,45 @@
 # @astrojs/starlight
 
+## 0.13.0
+
+### Minor Changes
+
+- [#1023](https://github.com/withastro/starlight/pull/1023) [`a3b80f7`](https://github.com/withastro/starlight/commit/a3b80f71037504f2b8d7f1a641924215091122bb) Thanks [@kevinzunigacuellar](https://github.com/kevinzunigacuellar)! - Respect the `trailingSlash` and `build.format` Astro options when creating Starlight navigation links.
+
+  ⚠️ **Potentially breaking change:**
+  This change will cause small changes in link formatting for most sites.
+  These are unlikely to break anything, but if you care about link formatting, you may want to change some Astro settings.
+
+  If you want to preserve Starlight’s previous behavior, set `trailingSlash: 'always'` in your `astro.config.mjs`:
+
+  ```js
+  import { defineConfig } from 'astro/config';
+  import starlight from '@astrojs/starlight';
+
+  export default defineConfig({
+  	trailingSlash: 'always',
+  	integrations: [
+  		starlight({
+  			// ...
+  		}),
+  	],
+  });
+  ```
+
+- [#517](https://github.com/withastro/starlight/pull/517) [`5b549cb`](https://github.com/withastro/starlight/commit/5b549cb634f51d28bf9a7f92ad0d82c1671e788a) Thanks [@liruifengv](https://github.com/liruifengv)! - Add i18n support for default aside labels
+
+### Patch Changes
+
+- [#1088](https://github.com/withastro/starlight/pull/1088) [`4fe5537`](https://github.com/withastro/starlight/commit/4fe553749a6708fdb119b12a2dbc6b10a980bde1) Thanks [@Lootjs](https://github.com/Lootjs)! - i18n(ru): added Russian aside labels translation
+
+- [#1083](https://github.com/withastro/starlight/pull/1083) [`e03a653`](https://github.com/withastro/starlight/commit/e03a65313365b7dbe6095727b28b4e639c446f68) Thanks [@at-the-vr](https://github.com/at-the-vr)! - i18n(hi): Add Hindi language support
+
+- [#1075](https://github.com/withastro/starlight/pull/1075) [`2f2adf2`](https://github.com/withastro/starlight/commit/2f2adf29f2a13d5ff0f1577207210745a5ae7405) Thanks [@russbiggs](https://github.com/russbiggs)! - Add Slack social link icon
+
+- [#1081](https://github.com/withastro/starlight/pull/1081) [`f27f781`](https://github.com/withastro/starlight/commit/f27f781556d37e73d0b1d902de745b67f8e4f24d) Thanks [@farisphp](https://github.com/farisphp)! - i18n(id): Add Indonesian aside labels translation
+
+- [#1082](https://github.com/withastro/starlight/pull/1082) [`ce27486`](https://github.com/withastro/starlight/commit/ce27486fabd3884ed4bca9372ebd72a0597ab765) Thanks [@bogdaaamn](https://github.com/bogdaaamn)! - i18n(ro): Add Romanian UI translations
+
 ## 0.12.1
 
 ### Patch Changes
@@ -293,16 +333,16 @@
 
   ```css
   :root {
-    --sl-hue-accent: 234;
-    --sl-color-accent-low: hsl(var(--sl-hue-accent), 54%, 20%);
-    --sl-color-accent: hsl(var(--sl-hue-accent), 100%, 60%);
-    --sl-color-accent-high: hsl(var(--sl-hue-accent), 100%, 87%);
+  	--sl-hue-accent: 234;
+  	--sl-color-accent-low: hsl(var(--sl-hue-accent), 54%, 20%);
+  	--sl-color-accent: hsl(var(--sl-hue-accent), 100%, 60%);
+  	--sl-color-accent-high: hsl(var(--sl-hue-accent), 100%, 87%);
   }
 
   :root[data-theme='light'] {
-    --sl-color-accent-high: hsl(var(--sl-hue-accent), 80%, 30%);
-    --sl-color-accent: hsl(var(--sl-hue-accent), 90%, 60%);
-    --sl-color-accent-low: hsl(var(--sl-hue-accent), 88%, 90%);
+  	--sl-color-accent-high: hsl(var(--sl-hue-accent), 80%, 30%);
+  	--sl-color-accent: hsl(var(--sl-hue-accent), 90%, 60%);
+  	--sl-color-accent-low: hsl(var(--sl-hue-accent), 88%, 90%);
   }
   ```
 
@@ -681,8 +721,8 @@
 
   ```json
   {
-    "search.label": "Suchen",
-    "search.shortcutLabel": "(Drücke / zum Suchen)"
+  	"search.label": "Suchen",
+  	"search.shortcutLabel": "(Drücke / zum Suchen)"
   }
   ```
 
